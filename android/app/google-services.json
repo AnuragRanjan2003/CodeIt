@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "769741125531",
+    "project_id": "codeit-4de40",
+    "storage_bucket": "codeit-4de40.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:769741125531:android:686f883d5193d3c651133e",
+        "android_client_info": {
+          "package_name": "com.example.codeit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "769741125531-oqdj0hg5j0krrdblf9b17ogqehhe6cn8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCb-PazAqNZrZKOKYEq891Pvd-yGu7QeLI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "769741125531-oqdj0hg5j0krrdblf9b17ogqehhe6cn8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "769741125531-aigeqf3u85lrc78scoulapd4fm8dvtom.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.codeit"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
