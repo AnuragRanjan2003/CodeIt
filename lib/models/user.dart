@@ -19,4 +19,9 @@ class User {
   factory User.fromJson(json) => _$UserFromJson(json);
 
   factory User.fromCredentials(auth.User u) => User('',u.email!,'','','',u.uid);
+
+  @override
+  String toString() {
+    return 'User(email : $email , name : $name , pass : $password , cf : $cfHandle , git : $gitHandle,uid $uid)';
+  }
 }

@@ -1,8 +1,7 @@
+import 'package:codeit/components/gradient_button.dart';
 import 'package:codeit/components/textbox.dart';
 import 'package:codeit/controllers/auth_controller.dart';
 import 'package:codeit/res/colors/colors.dart';
-import 'package:codeit/res/dims/anim.dart';
-import 'package:codeit/res/img/project_images.dart';
 import 'package:codeit/res/strings/login_strings.dart';
 import 'package:codeit/res/styles/text_styles.dart';
 import 'package:codeit/utils/routes.dart';
@@ -28,71 +27,85 @@ class LoginScreenPortrait extends StatelessWidget {
       body: SingleChildScrollView(
         child: Container(
           width: cons.maxWidth,
+          height: ht,
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image(
-                image: ProjectImages.pinkWaveUp,
-                width: wd,
-                fit: BoxFit.fill,
-                height: ht * 0.2,
+              const Text(
+                LoginStrings.title,
+                style: ProjectTextStyles.title,
+                textAlign: TextAlign.center,
               ),
-              Container(
-                height: ht * 0.5,
-                width: wd,
-                padding: const EdgeInsets.symmetric(horizontal: 30),
+              const SizedBox(height: 20,),
+              const Text(LoginStrings.sub, style: ProjectTextStyles.body,),
+              const SizedBox(height: 20,),
+              SizedBox(
+                height: ht * 0.6,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    const Text(
-                      LoginStrings.title,
-                      style: ProjectTextStyles.title,
-                      textAlign: TextAlign.center,
-                    ),
-                    TextBox(
-                        label: 'Email',
-                        controller: emailController,
-                        color: ProjectColors.pink),
-                    TextBox(
-                      label: 'Password',
-                      controller: passController,
-                      color: ProjectColors.pink,
-                      pass: true,
-                    ),
-                    MaterialButton(
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                      const Text(
+                        'Email',
+                        style: ProjectTextStyles.body,
+                      ),
+                      const SizedBox(height: 8,),
+                      TextBox(
+                          label: 'Email',
+                          controller: emailController,
+                          color: ProjectColors.purple),
+
+                    ],),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                      const Text(
+                        'password',
+                        style: ProjectTextStyles.body,
+                      ),
+                      const SizedBox(height: 8,),
+                      TextBox(
+                        label: 'Password',
+                        controller: passController,
+                        color: ProjectColors.purple,
+                        pass: true,
+                      ),
+                    ],),
+                    GradientButton(
                         onPressed: () {
                           authController.loginUser(emailController.value.text,
                               passController.value.text);
                         },
-                        shape: const RoundedRectangleBorder(
-                            borderRadius:
-                            BorderRadius.all(Radius.circular(10))),
-                        color: ProjectColors.pink,
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 15),
-                          child: Obx(() {
-                            if (authController.loading.isTrue) {
-                              return const SizedBox(
-                                height: 20,
-                                width: 20,
-                                child: CircularProgressIndicator(
-                                  color: Colors.white, strokeWidth: 2,),);
-
-                            }else {
-                              return const Text(
-                              'Login',
+                        grad: ProjectColors.gradient,
+                        child: Obx(() {
+                          if (authController.loading.isTrue) {
+                            return const SizedBox(
+                              height: 20,
+                              width: 20,
+                              child: CircularProgressIndicator(
+                                color: Colors.white,
+                                strokeWidth: 2,
+                              ),
+                            );
+                          } else {
+                            return const Text(
+                              'Log in',
                               style: ProjectTextStyles.onButton,
                             );
-                            }
-                          }),
-                        )),
+                          }
+                        })),
                     MaterialButton(
                       onPressed: () {
                         Get.toNamed(Routes.signup);
                       },
                       shape: const RoundedRectangleBorder(
-                          side: BorderSide(color: ProjectColors.pink, width: 2),
-                          borderRadius: BorderRadius.all(Radius.circular(10))),
+                          side: BorderSide(color: ProjectColors.purple, width: 2),
+                          borderRadius: BorderRadius.all(Radius.circular(20))),
                       child: const Padding(
                         padding: EdgeInsets.symmetric(vertical: 15),
                         child: Text(
@@ -103,12 +116,6 @@ class LoginScreenPortrait extends StatelessWidget {
                     )
                   ].animate().slideX(),
                 ),
-              ),
-              Image(
-                image: ProjectImages.pinkWave,
-                width: wd,
-                fit: BoxFit.fill,
-                height: ht * 0.3,
               ),
             ],
           ),

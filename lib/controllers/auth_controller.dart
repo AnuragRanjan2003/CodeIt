@@ -74,7 +74,8 @@ class AuthController extends GetxController {
     loading.value = true;
     authRepo.loginUser(email, password).then((value) {
       if (value.isSuccess()) {
-        startListeningToUser((value as Success<User>).data.uid);
+        user.value = (value as Success<User>).data;
+        startListeningToUser((value).data.uid);
         Get.toNamed(Routes.main);
         loading.value = false;
       } else {
@@ -89,6 +90,7 @@ class AuthController extends GetxController {
 
   startListeningToUser(String uid) {
     sub = authRepo.getUserStream(uid).listen((value) {
+      debugPrint('got user : ${value.data().toString()}');
       if (value.data() != null) user.value = value.data()!;
     });
   }
@@ -97,6 +99,7 @@ class AuthController extends GetxController {
     authRepo.logOut().then((value) {
       if(sub!=null) sub!.cancel();
       user.value = null;
+      Get.toNamed(Routes.login);
     });
   }
 

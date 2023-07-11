@@ -19,15 +19,14 @@ class TextBox extends StatelessWidget {
     return TextField(
       controller: controller,
       obscureText: pass,
-      style: TextStyle(color: color,fontWeight: FontWeight.w500),
+      style: const TextStyle(color: Colors.white,fontWeight: FontWeight.w500),
       decoration: InputDecoration(
-          hintText: label,
+          hintText: 'Enter your $label',
           focusColor: color,
-          filled: true,
-          hintStyle: TextStyle(color: color,fontWeight: FontWeight.w500),
-          enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: color, width: 2),
-              borderRadius: const BorderRadius.all(Radius.circular(15))),
+          hintStyle: const TextStyle(color: Colors.grey,fontWeight: FontWeight.w500),
+          enabledBorder: const OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.white24, width: 2),
+              borderRadius: BorderRadius.all(Radius.circular(15))),
           focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(color: color, width: 2),
               borderRadius: const BorderRadius.all(Radius.circular(15)))),

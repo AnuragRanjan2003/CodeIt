@@ -6,4 +6,5 @@ class ProjectTextStyles {
   static const onButton = TextStyle(color: ProjectColors.plainTextColor , fontSize: 16 , fontWeight: FontWeight.w700);
   static const snackButton = TextStyle(color: ProjectColors.blue , fontSize: 14 , fontWeight: FontWeight.w700);
   static const body = TextStyle(color: ProjectColors.plainTextColor , fontSize: 16 , fontWeight: FontWeight.w500);
+  static const normal = TextStyle(color: ProjectColors.plainTextColor , fontSize: 18 , fontWeight: FontWeight.w600);
 }
