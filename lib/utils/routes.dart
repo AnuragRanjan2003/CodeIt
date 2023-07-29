@@ -1,4 +1,5 @@
 import 'package:codeit/screens/addAccounts/add_accounts_screen.dart';
+import 'package:codeit/screens/composeThread/compose_thread.dart';
 import 'package:codeit/screens/login/login_screen.dart';
 import 'package:codeit/screens/main/mainScreen.dart';
 import 'package:codeit/screens/signup/signup_screen.dart';
@@ -9,6 +10,7 @@ class Routes {
   static const signup = '/signup';
   static const addAccount = '/add_account';
   static const main = '/main';
+  static const compose = '/compose';
 }
 
 class AppRoutes {
@@ -16,6 +18,7 @@ class AppRoutes {
         GetPage(name: Routes.login, page: () => const LoginScreen()),
         GetPage(name: Routes.signup, page: () => const SignUpScreen()),
         GetPage(name: Routes.addAccount, page: () => const AddAccountsScreen()),
-        GetPage(name: Routes.main, page: () => const MainScreen())
+        GetPage(name: Routes.main, page: () => const MainScreen()),
+        GetPage(name: Routes.compose, page: () => const ComposeThreadScreen()),
       ];
 }

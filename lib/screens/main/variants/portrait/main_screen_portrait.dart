@@ -1,5 +1,6 @@
 import 'package:codeit/res/colors/colors.dart';
 import 'package:codeit/screens/profile/profile_screen.dart';
+import 'package:codeit/screens/threads/threads_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -31,7 +32,7 @@ class MainScreenPortrait extends StatelessWidget {
                   children: const [
                     ProfileScreen(),
                     ProfileScreen(),
-                    ProfileScreen(),
+                    ThreadsScreen(),
                   ],
                 ),
               ),

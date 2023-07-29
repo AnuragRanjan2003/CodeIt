@@ -42,9 +42,11 @@ dependencies:
   json_annotation: ^4.8.1
   get: ^4.6.5
   flutter_animate: ^4.2.0
-  google_nav_bar: ^5.0.6
   font_awesome_flutter: ^10.5.0
   smooth_page_indicator: ^1.1.0
+  simple_circular_progress_bar: ^1.0.2
+  dio: ^5.3.0
+  uuid: ^3.0.7
 
 dev_dependencies:
   flutter_test:

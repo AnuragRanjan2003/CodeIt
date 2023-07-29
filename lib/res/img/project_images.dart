@@ -5,4 +5,5 @@ class ProjectImages {
   static const refs = AssetImage('lib/assets/images/refs.png');
   static const man = AssetImage('lib/assets/images/man.png');
   static const friends = AssetImage('lib/assets/images/friends.png');
+  static const search = AssetImage('lib/assets/images/search.png');
 }

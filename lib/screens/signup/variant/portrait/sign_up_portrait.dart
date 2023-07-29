@@ -9,7 +9,6 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
 
 import '../../../../res/colors/colors.dart';
-import '../../../../res/img/project_images.dart';
 import '../../../../res/styles/text_styles.dart';
 
 class SignUpPortrait extends StatelessWidget {
@@ -36,8 +35,14 @@ class SignUpPortrait extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(SignUpString.title, style: ProjectTextStyles.title,),
-              const Text(SignUpString.sub, style: ProjectTextStyles.body,),
+              const Text(
+                SignUpString.title,
+                style: ProjectTextStyles.title,
+              ),
+              const Text(
+                SignUpString.sub,
+                style: ProjectTextStyles.body,
+              ),
               SizedBox(
                 height: ht * 0.7,
                 width: wd,
@@ -48,8 +53,13 @@ class SignUpPortrait extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text('Email', style: ProjectTextStyles.body,),
-                        const SizedBox(height: 8,),
+                        const Text(
+                          'Email',
+                          style: ProjectTextStyles.body,
+                        ),
+                        const SizedBox(
+                          height: 8,
+                        ),
                         TextBox(
                             label: 'Email',
                             controller: emailController,
@@ -59,8 +69,13 @@ class SignUpPortrait extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text('username', style: ProjectTextStyles.body,),
-                        const SizedBox(height: 8,),
+                        const Text(
+                          'username',
+                          style: ProjectTextStyles.body,
+                        ),
+                        const SizedBox(
+                          height: 8,
+                        ),
                         TextBox(
                             label: 'username',
                             controller: userController,
@@ -70,8 +85,13 @@ class SignUpPortrait extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text('password', style: ProjectTextStyles.body,),
-                        const SizedBox(height: 8,),
+                        const Text(
+                          'password',
+                          style: ProjectTextStyles.body,
+                        ),
+                        const SizedBox(
+                          height: 8,
+                        ),
                         TextBox(
                           label: 'password',
                           controller: passController,
@@ -81,7 +101,7 @@ class SignUpPortrait extends StatelessWidget {
                       ],
                     ),
                     GradientButton(
-                      grad: ProjectColors.gradient,
+                        grad: ProjectColors.gradient,
                         onPressed: () {
                           authController.authError.value = checkValidity(
                               emailController.value.text,
@@ -98,14 +118,15 @@ class SignUpPortrait extends StatelessWidget {
                             Get.toNamed(Routes.addAccount);
                           }
                         },
-                            child: const Text(
-                              'Next',
-                              style: ProjectTextStyles.onButton,
-                            )),
+                        child: const Text(
+                          'Next',
+                          style: ProjectTextStyles.onButton,
+                        )),
                     MaterialButton(
                       onPressed: () {},
                       shape: const RoundedRectangleBorder(
-                          side: BorderSide(color: ProjectColors.purple, width: 2),
+                          side:
+                              BorderSide(color: ProjectColors.purple, width: 2),
                           borderRadius: BorderRadius.all(Radius.circular(20))),
                       child: const Padding(
                         padding: EdgeInsets.symmetric(vertical: 17),

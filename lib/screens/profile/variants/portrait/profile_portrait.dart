@@ -1,10 +1,12 @@
 import 'package:codeit/components/gradient_button.dart';
+import 'package:codeit/controllers/GitController.dart';
 import 'package:codeit/controllers/auth_controller.dart';
 import 'package:codeit/res/colors/colors.dart';
 import 'package:codeit/res/img/project_images.dart';
 import 'package:codeit/res/styles/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 
 class ProfileScreenPortrait extends StatelessWidget {
   final BoxConstraints cons;
@@ -14,9 +16,11 @@ class ProfileScreenPortrait extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AuthController auth = Get.find();
+    final git = Get.put(GitController());
+    git.getGitUser("AnuragRanjan2003");
     final wd = cons.maxWidth;
     final ht = cons.maxHeight;
-    return Container(
+    return SizedBox(
       height: ht * 0.9,
       width: wd,
       child: SingleChildScrollView(
@@ -27,16 +31,22 @@ class ProfileScreenPortrait extends StatelessWidget {
           color: ProjectColors.backgroundColor,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              const CircleAvatar(
+              Obx(()=>CircleAvatar(
                 backgroundColor: ProjectColors.plainTextColor,
                 radius: 55,
-                child: Image(image: ProjectImages.man),
-              ),
-              Obx(()=>Text(
-                auth.user.value!.name,
-                style: ProjectTextStyles.normal,
+                foregroundImage:
+                    NetworkImage(git.gitUser.value.avatarUrl.toString()),
+
               )),
+              Obx(() => Text(
+                    git.gitUser.value!.name.toString(),
+                    style: ProjectTextStyles.normal,
+                  )),
+              SizedBox(
+                height: ht * 0.04,
+              ),
               OutlinedButton(
                   onPressed: () {
                     auth.logOut();
@@ -45,6 +55,9 @@ class ProfileScreenPortrait extends StatelessWidget {
                     'log out',
                     style: ProjectTextStyles.body,
                   )),
+              SizedBox(
+                height: ht * 0.05,
+              ),
               const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -78,8 +91,11 @@ class ProfileScreenPortrait extends StatelessWidget {
                   ),
                 ],
               ),
+              SizedBox(
+                height: ht * 0.05,
+              ),
               Container(
-                height: 60,
+                height: 65,
                 padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
                 decoration: const BoxDecoration(
                     color: ProjectColors.onBackgroundColor,
@@ -120,6 +136,16 @@ class ProfileScreenPortrait extends StatelessWidget {
                   ],
                 ),
               ),
+              Expanded(
+                  child: SimpleCircularProgressBar(
+                valueNotifier: ValueNotifier(100),
+                animationDuration: 3,
+                mergeMode: true,
+                onGetText: (p0) => Text(
+                  p0.toInt().toString(),
+                  style: ProjectTextStyles.normal,
+                ),
+              ))
             ],
           ),
         ),
